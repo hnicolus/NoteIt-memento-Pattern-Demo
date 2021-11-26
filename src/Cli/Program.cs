@@ -3,13 +3,14 @@ using static System.Console;
 
 EditorViewModel viewModel = new();
 string? textUserWillType = "Hello";
-//Set  Font and text size
 
+
+static void SimulateUserPause() => Thread.Sleep(500);
+
+// simulator user interaction 
 for (int x = 0; x < textUserWillType.Length; x++)
 {
-    //simulator user pause as they type
-    Thread.Sleep(500);
-
+    SimulateUserPause();
     //add newly typed character to editor
     viewModel.Content = textUserWillType[..x];
     //display new content to screen
@@ -17,22 +18,22 @@ for (int x = 0; x < textUserWillType.Length; x++)
 }
 
 
-Thread.Sleep(500);
+SimulateUserPause();
 //Change Font Size  
 viewModel.FontSize = 18;
 WriteLine($"Font Size : {viewModel.FontSize}");
-Thread.Sleep(500);
+SimulateUserPause();
 viewModel.FontSize = 35;
 WriteLine($"Font Size : {viewModel.FontSize}");
 //Undo two previous changes
 viewModel.Undo();
-Thread.Sleep(500);
+SimulateUserPause();
 WriteLine($"Font Size : {viewModel.FontSize}");
 viewModel.Undo();
 WriteLine($"Font Size : {viewModel.FontSize}");
 
 //Change Font 
-Thread.Sleep(500);
+SimulateUserPause();
 viewModel.FontFamily = "Lato";
 WriteLine($"Font Family changed to {viewModel.FontFamily}");
 //undo font change
