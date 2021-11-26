@@ -43,6 +43,7 @@ WriteLine($"Font Family change undone, current font : {viewModel.FontFamily}");
 //simulate Undo clicked 3 times
 for (int i = 0; i < 3; i++)
 {
+    SimulateUserPause();
     viewModel.Undo();
     WriteLine(viewModel.Content);
 }
